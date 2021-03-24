@@ -1,10 +1,12 @@
 export * from './button';
 export * from './columns';
-export * from './navbar';
+export * from './faq';
 export * from './form';
+export * from './navbar';
 
 export * from './markdown';
 
+export * from './Alert';
 export * from './Background';
 export * from './Box';
 export * from './Epigraph';
