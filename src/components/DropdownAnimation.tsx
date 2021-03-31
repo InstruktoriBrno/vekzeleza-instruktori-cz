@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import {FC, useCallback, useState} from 'react';
+import {FC, useLayoutEffect, useRef, useState} from 'react';
 
 import style from './DropdownAnimation.module.scss';
 
@@ -16,7 +16,15 @@ export const DropdownAnimation: FC<Props> = ({
     className,
 }) => {
     const [maxHeight, setMaxHeight] = useState(0);
-    const updateRef = useCallback((el: HTMLElement | null) => el && setMaxHeight(el.scrollHeight), [setMaxHeight]);
+    const ref = useRef<HTMLElement | null>(null);
+    const updateRef = (el: HTMLElement | null) => {
+        ref.current = el;
+    };
+    useLayoutEffect(() => {
+        if (ref.current && visible) {
+            setMaxHeight(ref.current.scrollHeight);
+        }
+    }, [visible]);
 
     return (
         <Tag
