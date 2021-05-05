@@ -1,0 +1,10 @@
+.main {
+    flex: 0 1 200px;
+
+    cursor: pointer;
+    filter: grayscale(50%) brightness(70%);
+}
+
+.active {
+    filter: none;
+}
